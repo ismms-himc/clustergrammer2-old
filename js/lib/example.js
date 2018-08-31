@@ -27,7 +27,7 @@ var HelloModel = widgets.DOMWidgetModel.extend({
         _model_module_version : '0.1.0',
         _view_module_version : '0.1.0',
         value : 'Hello World',
-        network:''
+        network:'default-value'
     })
 });
 
@@ -56,41 +56,45 @@ var HelloView = widgets.DOMWidgetView.extend({
 
         console.log(this.model.get('network'))
 
+        console.log('loading network')
         var inst_network_string = this.model.get('network');
+
+        console.log(inst_network_string)
+        console.log('parsing network')
         var inst_network = JSON.parse(inst_network_string);
 
-        console.log(inst_network)
+        console.log('after parsing network')
 
-        // var container_name = this.cid;
+        var container_name = this.cid;
 
-        // // the cid appears to be the container id, which gives a unique view number
-        // console.log('container_name', container_name)
+        // the cid appears to be the container id, which gives a unique view number
+        console.log('container_name', container_name)
 
-        // // widget-subarea appears to be limited to a width of ~960px in nbviewer
-        // var inst_container = d3.select(this.el)
-        //     .append('div')
-        //     .classed('clustergrammer_glidget', true)
-        //     .attr('id', container_name)
-        //     .style('width', '975px')
-        //     .style('height', '975px');
+        // widget-subarea appears to be limited to a width of ~960px in nbviewer
+        var inst_container = d3.select(this.el)
+            .append('div')
+            .classed('clustergrammer_glidget', true)
+            .attr('id', container_name)
+            .style('width', '975px')
+            .style('height', '975px');
 
-        // var container_id = '#'+container_name;
+        var container_id = '#'+container_name;
 
-        // console.log(container_name, inst_container, container_id);
+        console.log(container_name, inst_container, container_id);
 
-        // // define arguments object
-        // var args = {
-        //     'container_name': container_name,
-        //     'network': inst_network,
-        // };
+        // define arguments object
+        var args = {
+            'container_name': container_name,
+            'network': inst_network,
+        };
 
-        // console.log(args);
+        console.log(args);
 
-        // setTimeout(make_viz, 10, args);
+        setTimeout(make_viz, 10, args);
     },
 
     value_changed: function() {
-        this.el.textContent = this.model.get('value');
+        // this.el.textContent = this.model.get('value');
     }
 });
 
