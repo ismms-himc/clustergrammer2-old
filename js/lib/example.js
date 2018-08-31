@@ -35,6 +35,7 @@ var HelloView = widgets.DOMWidgetView.extend({
     render: function() {
         this.value_changed();
         this.model.on('change:value', this.value_changed, this);
+        console.log('Clustergrammer2!!!')
     },
 
     value_changed: function() {
