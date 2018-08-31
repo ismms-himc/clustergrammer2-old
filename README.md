@@ -1,6 +1,8 @@
 clustergrammer2
 ===============================
 
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ismms-himc/clustergrammer2/master?filepath=Running_Clustergrammer2.ipynb)
+
 A Custom Jupyter Widget Library
 
 Installation
