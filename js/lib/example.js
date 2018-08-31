@@ -44,22 +44,22 @@ function make_viz(args){
 // Custom View. Renders the widget model.
 var HelloView = widgets.DOMWidgetView.extend({
     render: function() {
+
         this.value_changed();
         this.model.on('change:value', this.value_changed, this);
 
         console.log('Clustergrammer2 Widget!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
         console.log('\n**********************************************');
-        console.log('rendering');
+        console.log('rendering using network json');
         console.log('**********************************************');
 
         console.log(this.model.get('network'))
 
         var inst_network_string = this.model.get('network');
+        var inst_network = JSON.parse(inst_network_string);
 
-        // var inst_network = JSON.parse(inst_network_string);
-
-        // console.log(inst_network)
+        console.log(inst_network)
 
         // var container_name = this.cid;
 
